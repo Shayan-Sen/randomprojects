@@ -1,5 +1,7 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, deprecated_member_use
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, deprecated_member_use, prefer_const_literals_to_create_immutables
 
+import 'package:billingappdraft1/Landnpg.dart';
+import 'package:billingappdraft1/Signup_Page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -25,12 +27,28 @@ class _LoginPageState extends State<LoginPage> {
               height: 230,
               width: 150,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                "Login ",
-                textScaleFactor: 2,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    "Login ",
+                    textScaleFactor: 2,
+                  ),
+                ),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignupPage(),
+                            ));
+                      });
+                    },
+                    child: Text("go to signup"))
+              ],
             ),
             SizedBox(
               child: TextFormField(
@@ -67,6 +85,17 @@ class _LoginPageState extends State<LoginPage> {
                     icon: Icon(Icons.remove_red_eye_outlined))
               ],
             ),
+            TextButton(
+                onPressed: () {
+                  setState(() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LandingPage(),
+                        ));
+                  });
+                },
+                child: Text("Submit"))
           ],
         ),
       ),

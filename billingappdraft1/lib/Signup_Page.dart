@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, deprecated_member_use
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, deprecated_member_use, prefer_const_literals_to_create_immutables
 
+import 'package:billingappdraft1/Login_Page.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatefulWidget {
@@ -25,12 +26,28 @@ class _SignupPageState extends State<SignupPage> {
               height: 230,
               width: 150,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                "Signup ",
-                textScaleFactor: 2,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    "Signup ",
+                    textScaleFactor: 2,
+                  ),
+                ),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginPage(),
+                            ));
+                      });
+                    },
+                    child: Text("go to login"))
+              ],
             ),
             SizedBox(
               child: TextFormField(
