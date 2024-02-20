@@ -85,7 +85,10 @@ class _LoginPageState extends State<LoginPage> {
                     icon: Icon(Icons.remove_red_eye_outlined))
               ],
             ),
-            TextButton(
+            SizedBox(
+              height: 40,
+            ),
+            ElevatedButton(
                 onPressed: () {
                   setState(() {
                     Navigator.push(

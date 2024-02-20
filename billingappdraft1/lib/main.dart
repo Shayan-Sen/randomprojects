@@ -1,4 +1,5 @@
-import 'package:billingappdraft1/Login_Page.dart';
+//import 'package:billingappdraft1/Login_Page.dart';
+import 'package:billingappdraft1/TablePage.dart';
 // ignore_for_file: prefer_const_constructors
 
 //import 'Signup_Page.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: Dtblewdjt(),
     );
   }
 }

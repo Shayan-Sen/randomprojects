@@ -40,7 +40,7 @@ class _LandingPageState extends State<LandingPage> {
                 ));
           });
         },
-        child: Text("login"),
+        child: Icon(Icons.exit_to_app),
       ),
     );
   }

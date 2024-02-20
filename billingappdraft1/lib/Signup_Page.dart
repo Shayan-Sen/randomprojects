@@ -40,10 +40,11 @@ class _SignupPageState extends State<SignupPage> {
                     onPressed: () {
                       setState(() {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginPage(),
-                            ));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginPage(),
+                          ),
+                        );
                       });
                     },
                     child: Text("go to login"))
@@ -52,21 +53,22 @@ class _SignupPageState extends State<SignupPage> {
             SizedBox(
               child: TextFormField(
                 decoration: const InputDecoration(
-                  border: UnderlineInputBorder(),
-                  labelText: 'Enter your username',
-                ),
+                    border: OutlineInputBorder(),
+                    labelText: 'Enter your username',
+                    icon: Icon(Icons.person)),
               ),
               width: 500,
             ),
+            SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
                   child: TextFormField(
                     decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: 'Enter password',
-                    ),
+                        border: OutlineInputBorder(),
+                        labelText: 'Enter password',
+                        icon: Icon(Icons.password)),
                     obscureText: index,
                   ),
                   width: 460,
@@ -84,6 +86,45 @@ class _SignupPageState extends State<SignupPage> {
                     icon: Icon(Icons.remove_red_eye_outlined))
               ],
             ),
+            SizedBox(
+              height: 50,
+            ),
+            SizedBox(
+              child: TextFormField(
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Enter phonenumber',
+                    icon: Icon(Icons.call)),
+              ),
+              width: 500,
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            SizedBox(
+              child: TextFormField(
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Enter email',
+                    icon: Icon(Icons.mail_outline)),
+              ),
+              width: 500,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(),
+                      ),
+                    );
+                  });
+                },
+                child: Text("Submit"))
           ],
         ),
       ),
