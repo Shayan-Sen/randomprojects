@@ -15,117 +15,122 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /*appBar: AppBar(
+        backgroundColor: Colors.blue,
+      ),*/
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              child: Image.asset(
-                "images/login_signup.png",
-              ),
-              height: 230,
-              width: 150,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    "Signup ",
-                    textScaleFactor: 2,
-                  ),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                child: Image.asset(
+                  "images/login_signup.png",
                 ),
-                TextButton(
-                    onPressed: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginPage(),
-                          ),
-                        );
-                      });
-                    },
-                    child: Text("go to login"))
-              ],
-            ),
-            SizedBox(
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter your username',
-                    icon: Icon(Icons.person)),
+                height: 230,
+                width: 150,
               ),
-              width: 500,
-            ),
-            SizedBox(height: 50),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Enter password',
-                        icon: Icon(Icons.password)),
-                    obscureText: index,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Signup ",
+                      textScaleFactor: 2,
+                    ),
                   ),
-                  width: 460,
+                  TextButton(
+                      onPressed: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginPage(),
+                            ),
+                          );
+                        });
+                      },
+                      child: Text("go to login"))
+                ],
+              ),
+              SizedBox(
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter your username',
+                      icon: Icon(Icons.person)),
                 ),
-                IconButton(
-                    onPressed: () {
-                      setState(() {
-                        if (index == true) {
-                          index = false;
-                        } else {
-                          index = true;
-                        }
-                      });
-                    },
-                    icon: Icon(Icons.remove_red_eye_outlined))
-              ],
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            SizedBox(
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter phonenumber',
-                    icon: Icon(Icons.call)),
+                width: 500,
               ),
-              width: 500,
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            SizedBox(
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter email',
-                    icon: Icon(Icons.mail_outline)),
+              SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Enter password',
+                          icon: Icon(Icons.password)),
+                      obscureText: index,
+                    ),
+                    width: 460,
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          if (index == true) {
+                            index = false;
+                          } else {
+                            index = true;
+                          }
+                        });
+                      },
+                      icon: Icon(Icons.remove_red_eye_outlined))
+                ],
               ),
-              width: 500,
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LoginPage(),
-                      ),
-                    );
-                  });
-                },
-                child: Text("Submit"))
-          ],
+              SizedBox(
+                height: 50,
+              ),
+              SizedBox(
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter phonenumber',
+                      icon: Icon(Icons.call)),
+                ),
+                width: 500,
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              SizedBox(
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter email',
+                      icon: Icon(Icons.mail_outline)),
+                ),
+                width: 500,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginPage(),
+                        ),
+                      );
+                    });
+                  },
+                  child: Text("Submit"))
+            ],
+          ),
         ),
       ),
     );
