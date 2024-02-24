@@ -1,23 +1,99 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+/// Flutter code sample for [Scrollbar].
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+void main() => runApp(const ScrollbarApp());
+
+class ScrollbarApp extends StatelessWidget {
+  const ScrollbarApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Center(
-          child: Text("Hello World"),
+        appBar: AppBar(title: const Text('Scrollbar Sample')),
+        body: const Center(
+          child: DesktopExample(),
         ),
       ),
     );
+  }
+}
+
+class DesktopExample extends StatefulWidget {
+  const DesktopExample({super.key});
+
+  @override
+  State<DesktopExample> createState() => _DesktopExampleState();
+}
+
+class _DesktopExampleState extends State<DesktopExample> {
+  final ScrollController controller = ScrollController();
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      return Column(
+        children: <Widget>[
+          SizedBox(
+              height: 300,
+              // When running this sample on desktop, two scrollbars will be
+              // visible here. One is the default scrollbar and the other is the
+              // Scrollbar widget with custom thickness.
+              child: Scrollbar(
+                thickness: 20.0,
+                thumbVisibility: true,
+                controller: controller,
+                child: ListView.builder(
+                  controller: controller,
+                  itemCount: 100,
+                  itemBuilder: (BuildContext context, int index) {
+                    return SizedBox(
+                      height: 50,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Scrollable 1 : Index $index'),
+                      ),
+                    );
+                  },
+                ),
+              )),
+          SizedBox(
+            child: ColoredBox(
+              color: Colors.red,
+            ),
+            height: 50,
+          ),
+          SizedBox(
+              height: 300,
+              // When running this sample on desktop, one scrollbar will be
+              // visible here. The default scrollbar is hidden by setting the
+              // ScrollConfiguration's scrollbars to false. The Scrollbar widget
+              // with custom thickness is visible.
+              child: Scrollbar(
+                thickness: 20.0,
+                thumbVisibility: true,
+                child: ScrollConfiguration(
+                  behavior: ScrollConfiguration.of(context)
+                      .copyWith(scrollbars: false),
+                  child: ListView.builder(
+                    primary: true,
+                    itemCount: 100,
+                    itemBuilder: (BuildContext context, int index) {
+                      return SizedBox(
+                        height: 50,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Scrollable 2 : Index $index'),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              )),
+        ],
+      );
+    });
   }
 }
